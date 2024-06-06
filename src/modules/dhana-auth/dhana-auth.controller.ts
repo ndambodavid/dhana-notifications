@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { DhanaAuthService } from './dhana-auth.service';
-import { CreateDhanaAuthDto } from './dto/create-dhana-auth.dto';
+import { WelcomeDhanaAuthDto } from './dto/welcome-dhana-auth.dto';
 import { UpdateDhanaAuthDto } from './dto/update-dhana-auth.dto';
 
 @Controller('dhana-auth')
@@ -8,8 +8,8 @@ export class DhanaAuthController {
   constructor(private readonly dhanaAuthService: DhanaAuthService) {}
 
   @Post('welcome')
-  async welcomeMail(@Body() createDhanaAuthDto: CreateDhanaAuthDto) {
-    return await this.dhanaAuthService.welcomeNotification(createDhanaAuthDto);
+  async welcomeMail(@Body() welcomeDhanaAuthDto: WelcomeDhanaAuthDto) {
+    return await this.dhanaAuthService.welcomeNotification(welcomeDhanaAuthDto);
   }
 
   @Get()

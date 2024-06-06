@@ -12,7 +12,7 @@ export class EmailRestService {
   async welcomeEmail(data: EventPayloads['user.welcome']) {
     const { email, name } = data;
 
-    const subject = `Welcome to ${name}`;
+    const subject = `Welcome to Dhana Remote`;
 
     await this.mailerService.sendMail({
       to: email,

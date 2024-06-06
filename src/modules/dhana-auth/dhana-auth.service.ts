@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateDhanaAuthDto } from './dto/create-dhana-auth.dto';
+import { WelcomeDhanaAuthDto } from './dto/welcome-dhana-auth.dto';
 import { UpdateDhanaAuthDto } from './dto/update-dhana-auth.dto';
 import { TypedEventEmitter } from 'src/event-emitter/typed-event-emitter.class';
 
@@ -9,10 +9,10 @@ export class DhanaAuthService {
 
   constructor(private readonly eventEmitter: TypedEventEmitter) {}
 
-  async welcomeNotification(createDhanaAuthDto: CreateDhanaAuthDto) {
+  async welcomeNotification(welcomeDhanaAuthDto: WelcomeDhanaAuthDto) {
     return this.eventEmitter.emit('user.welcome', {
-      name: 'Bhagyajit Jagdev',
-      email: "email",
+      name: welcomeDhanaAuthDto.name,
+      email: welcomeDhanaAuthDto.email
     });
     // return 'This action adds a new dhanaAuth';
   }

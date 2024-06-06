@@ -10,12 +10,12 @@ import { MailerModule } from '@nestjs-modules/mailer';
   imports: [
     MailerModule.forRoot({
       transport: {
-        host: '<host>',
-        port: Number('<port>'),
-        secure: false,
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT),
+        secure: true,
         auth: {
-          user: '<username>',
-          pass: '<password>',
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
         },
       },
       defaults: {
