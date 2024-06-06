@@ -19,7 +19,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
         },
       },
       defaults: {
-        from: '"From Name" <from@example.com>',
+        from: '"Dhana Remote" <developersdhana@gmail.com>',
       },
       template: {
         dir: join(__dirname, 'templates'),
