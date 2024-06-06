@@ -7,9 +7,9 @@ import { UpdateDhanaAuthDto } from './dto/update-dhana-auth.dto';
 export class DhanaAuthController {
   constructor(private readonly dhanaAuthService: DhanaAuthService) {}
 
-  @Post()
-  async create(@Body() createDhanaAuthDto: CreateDhanaAuthDto) {
-    return await this.dhanaAuthService.create(createDhanaAuthDto);
+  @Post('welcome')
+  async welcomeMail(@Body() createDhanaAuthDto: CreateDhanaAuthDto) {
+    return await this.dhanaAuthService.welcomeNotification(createDhanaAuthDto);
   }
 
   @Get()

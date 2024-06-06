@@ -9,7 +9,7 @@ export class DhanaAuthService {
 
   constructor(private readonly eventEmitter: TypedEventEmitter) {}
 
-  create(createDhanaAuthDto: CreateDhanaAuthDto) {
+  async welcomeNotification(createDhanaAuthDto: CreateDhanaAuthDto) {
     return this.eventEmitter.emit('user.welcome', {
       name: 'Bhagyajit Jagdev',
       email: "email",
