@@ -10,11 +10,13 @@ export class DhanaAuthService {
   constructor(private readonly eventEmitter: TypedEventEmitter) {}
 
   async welcomeNotification(welcomeDhanaAuthDto: WelcomeDhanaAuthDto) {
-    return this.eventEmitter.emit('user.welcome', {
+    console.log(welcomeDhanaAuthDto);
+    
+    this.eventEmitter.emit('user.welcome', {
       name: welcomeDhanaAuthDto.name,
       email: welcomeDhanaAuthDto.email
     });
-    // return 'This action adds a new dhanaAuth';
+    return 'Email Sent';
   }
 
   findAll() {

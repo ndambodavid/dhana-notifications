@@ -1,6 +1,7 @@
 import { MailerService } from '@nestjs-modules/mailer';
 import { Injectable } from '@nestjs/common';
 import { OnEvent } from '@nestjs/event-emitter';
+import path, { join } from 'path';
 import { EventPayloads } from 'src/interface/event-types.interface';
 
 
@@ -13,7 +14,6 @@ export class EmailRestService {
     const { email, name } = data;
 
     const subject = `Welcome to Dhana Remote`;
-
     await this.mailerService.sendMail({
       to: email,
       subject,
