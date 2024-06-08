@@ -13,7 +13,7 @@ import { ConfigModule } from '@nestjs/config';
     DhanaAuthModule,
     TypedEventEmitterModule,
     EventEmitterModule.forRoot(),
-    ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true }),
+    // ConfigModule.forRoot({ envFilePath: '.env', isGlobal: true }),
   ],
   controllers: [AppController],
   providers: [AppService],

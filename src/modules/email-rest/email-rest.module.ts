@@ -11,16 +11,16 @@ import { ConfigService } from '@nestjs/config';
     MailerModule.forRoot({
       // useFactory: async (config: ConfigService) => ({
         transport: {
-          host: process.env.SMTP_HOST,
-          port: 467,
+          host: 'mail.vincowoods.com',
+          port: 465,
           secure: true,
           auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
+            user: 'ndambodavid@vincowoods.com',
+            pass: 'Ndambo@2024',
           },
         },
         defaults: {
-          from: '"Dhana Remote" <developersdhana@gmail.com>',
+          from: '"Dhana Remote" <ndambodavid@vincowoods.com>',
         },
         template: {
           dir: join(__dirname, 'templates'),

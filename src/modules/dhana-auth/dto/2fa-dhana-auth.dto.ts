@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty } from "class-validator";
 
-export class WelcomeDhanaAuthDto {
+export class OtpDhanaAuthDto {
 
     @IsEmail()
     email: string;
@@ -9,5 +9,5 @@ export class WelcomeDhanaAuthDto {
     name: string;
 
     @IsNotEmpty()
-    link: string;
+    otp: string;
 }

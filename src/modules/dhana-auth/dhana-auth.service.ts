@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { WelcomeDhanaAuthDto } from './dto/welcome-dhana-auth.dto';
 import { UpdateDhanaAuthDto } from './dto/update-dhana-auth.dto';
 import { TypedEventEmitter } from 'src/event-emitter/typed-event-emitter.class';
+import { OtpDhanaAuthDto } from './dto/2fa-dhana-auth.dto';
 
 
 @Injectable()
@@ -14,13 +15,19 @@ export class DhanaAuthService {
     
     this.eventEmitter.emit('user.welcome', {
       name: welcomeDhanaAuthDto.name,
-      email: welcomeDhanaAuthDto.email
+      email: welcomeDhanaAuthDto.email,
+      link: welcomeDhanaAuthDto.link
     });
     return 'Email Sent';
   }
 
-  findAll() {
-    return `This action returns all dhanaAuth`;
+  async sendOtp(otpDhanaAuthDto: OtpDhanaAuthDto) {
+    this.eventEmitter.emit('user.verify-email', {
+      name: otpDhanaAuthDto.name,
+      email: otpDhanaAuthDto.email,
+      otp: otpDhanaAuthDto.otp
+    });
+    return 'Email Sent';
   }
 
   findOne(id: number) {

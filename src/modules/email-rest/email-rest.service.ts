@@ -11,17 +11,21 @@ export class EmailRestService {
 
   @OnEvent('user.welcome')
   async welcomeEmail(data: EventPayloads['user.welcome']) {
-    const { email, name } = data;
+    const { email, name, link } = data;
 
     const subject = `Welcome to Dhana Remote`;
-    await this.mailerService.sendMail({
+    const sen = await this.mailerService.sendMail({
       to: email,
       subject,
       template: './welcome',
       context: {
         name,
+        link,
       },
     });
+    console.log('====================================');
+    console.log(sen);
+    console.log('====================================');
   }
 
   @OnEvent('user.reset-password')
